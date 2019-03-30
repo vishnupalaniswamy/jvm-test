@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
         ungzip(zipped)
     } else if (args[0] == "unzip") {
         val unzipFilename = "${args[1]}.unzipped.xml"
-        println("unzipping ${zippedFilename} to ${unzipFilename}")
+        println("unzipping $zippedFilename to $unzipFilename")
 
         val fileContents = File(zippedFilename).readBytes()
         println("zipped file size: ${fileContents.size}")
