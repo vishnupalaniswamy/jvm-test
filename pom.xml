@@ -23,6 +23,14 @@
             <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+
+        <!-- debug version of oracle jar _g -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7_g</artifactId>
+            <version>12.1.0.2</version>
+        </dependency>
+
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit</artifactId>
@@ -42,6 +50,21 @@
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
 
         <plugins>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>fully.qualified.MainClass</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
