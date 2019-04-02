@@ -14,7 +14,7 @@ fun gzip(content: String): ByteArray {
 
 fun ungzip(content: ByteArray): String =
     GZIPInputStream(content.inputStream()).bufferedReader(UTF_8).use { it.readText() }
-
+// arg[0] - command, arg[1] - file to zip, arg[2] - zipped file name
 fun main(args: Array<String>) {
     if (args.size < 2) return
 
